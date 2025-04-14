@@ -2,10 +2,9 @@ package com.ylw.javaproject
 
 import android.app.Activity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.Toast
-import androidx.activity.ComponentActivity
+import com.ylw.javaproject.annotation.Bind
 
 /**
  *  author : liwen15
@@ -16,6 +15,7 @@ class MainActivity : Activity() {
 
     var name : String? = "123"
 
+    @Bind(id = "O123")
     lateinit var button: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,8 +23,11 @@ class MainActivity : Activity() {
         setContentView(R.layout.activity_main)
         button = findViewById(R.id.button)
         button.setOnClickListener {
-            Toast.makeText(this, "点击了button", Toast.LENGTH_SHORT).show()
+            val tag = button.getTag(R.id.action_log_tag)
+            Toast.makeText(this, "点击了button --> $tag", Toast.LENGTH_SHORT).show()
         }
+        // 调用生成的绑定器
+        MainActivityActionBinder.bind(this)
     }
 
     override fun onResume() {

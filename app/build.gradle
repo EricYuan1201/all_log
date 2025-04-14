@@ -66,6 +66,10 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.4.1'//okHttp
 //    implementation "androidx.compose.compiler:compiler:1.0.0-beta08"
     implementation 'androidx.startup:startup-runtime:1.1.1'
+    
+    // 添加annotation-processor模块依赖
+    implementation project(':annotation-processor')
+    kapt project(':annotation-processor')
 
 
     //添加Compose依赖：https://developer.android.com/jetpack/compose/setup?hl=zh-cn
