@@ -29,7 +29,9 @@ class ClickMethodVisitor(
         isInterface: Boolean
     ) {
         // 检查是否是调用setOnClickListener方法
-        if (opcode == Opcodes.INVOKEVIRTUAL && 
+        // 只处理com/ylw/javaproject包内的类
+        if (className.startsWith("com/ylw/javaproject") &&
+            opcode == Opcodes.INVOKEVIRTUAL && 
             name == TARGET_METHOD && 
             descriptor == TARGET_DESC &&
             (owner.startsWith("android/widget/") || owner.startsWith("android/view/"))) {

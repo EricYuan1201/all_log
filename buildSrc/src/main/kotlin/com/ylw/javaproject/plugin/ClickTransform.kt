@@ -79,7 +79,7 @@ class ClickTransform : Transform() {
                 val jarOutEntry = JarEntry(entryName)
                 jarOutputStream.putNextEntry(jarOutEntry)
                 
-                if (entryName.endsWith(".class") && !entryName.startsWith("android/") && !entryName.startsWith("androidx/")) {
+                if (entryName.endsWith(".class") && entryName.startsWith("com/ylw/javaproject")) {
                     val classBytes = IOUtils.toByteArray(inputStream)
                     val modifiedBytes = modifyClass(classBytes)
                     jarOutputStream.write(modifiedBytes)
@@ -113,7 +113,7 @@ class ClickTransform : Transform() {
         )
         
         if (directoryInput.file.isDirectory) {
-            directoryInput.file.walkTopDown().filter { it.isFile && it.name.endsWith(".class") }.forEach { file ->
+            directoryInput.file.walkTopDown().filter { it.isFile && it.name.endsWith(".class") && it.path.contains("com/ylw/javaproject") }.forEach { file ->
                 val classBytes = file.readBytes()
                 val modifiedBytes = modifyClass(classBytes)
                 
