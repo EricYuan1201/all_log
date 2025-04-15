@@ -13,6 +13,8 @@ buildscript {
         classpath "com.android.tools.build:gradle:4.2.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
 
+        // 添加自定义插件的classpath依赖
+//        classpath project(':bytecode-plugin')
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -39,4 +41,16 @@ allprojects {
             downloadJavadoc = true
         }
     }
+    
+    // 全局设置重复处理策略
+    tasks.withType(Copy) {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    }
+    
+    tasks.withType(Jar) {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    }
 }
+
+// 确保bytecode-plugin在app之前构建
+//project(':app').evaluationDependsOn(':bytecode-plugin')

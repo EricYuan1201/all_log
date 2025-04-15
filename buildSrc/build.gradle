@@ -1,0 +1,30 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.31'
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.31"
+    
+    // ASM库用于字节码操作
+    implementation 'org.ow2.asm:asm:9.2'
+    implementation 'org.ow2.asm:asm-commons:9.2'
+    
+    // Android Gradle Plugin依赖
+    implementation 'com.android.tools.build:gradle:4.2.2'
+}
+
+gradlePlugin {
+    plugins {
+        clickPlugin {
+            id = 'com.ylw.javaproject.plugin.click'
+            implementationClass = 'com.ylw.javaproject.plugin.ClickPlugin'
+        }
+    }
+}

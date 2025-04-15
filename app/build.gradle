@@ -4,6 +4,9 @@ plugins {
     id 'kotlin-kapt'
 }
 
+// 重新启用插件
+apply plugin: 'com.ylw.javaproject.plugin.click'
+
 android {
     compileSdk 31
     buildToolsVersion "30.0.3"
@@ -42,6 +45,8 @@ android {
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            // 在resources块中设置重复处理策略
+            pickFirsts += 'META-INF/services/javax.annotation.processing.Processor'
         }
     }
 }
