@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Java Lambda测试页面"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/lambda_button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="简单Lambda按钮"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:id="@+id/lambda_button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="单行Lambda按钮"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:id="@+id/lambda_button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="复杂Lambda按钮"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:id="@+id/lambda_button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="方法引用按钮"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试说明：\n1. 测试Java 8+ Lambda表达式\n2. 需要API 24+ 或启用desugaring\n3. 观察各种Lambda语法的插桩效果"
+        android:textSize="14sp"
+        android:layout_marginTop="20dp"
+        android:background="#f0f0f0"
+        android:padding="10dp" />
+
+</LinearLayout>

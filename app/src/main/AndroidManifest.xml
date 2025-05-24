@@ -12,13 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JavaProject">
 
-        <activity android:name=".MainActivity">
+        <!-- 测试菜单Activity作为启动页 -->
+        <activity android:name=".TestMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 原始MainActivity -->
+        <activity android:name=".MainActivity" />
+
+        <!-- Java测试Activity -->
+        <activity android:name=".TestJavaActivity" />
+
+        <!-- Kotlin测试Activity -->
+        <activity android:name=".TestKotlinActivity" />
+
+        <!-- Lambda测试Activity -->
+        <activity android:name=".TestLambdaActivity" />
     </application>
 
 </manifest>
